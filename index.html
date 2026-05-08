@@ -34,7 +34,7 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 80vh; /* Keeps hero at 80% of viewport height */
+            height: 80vh; 
             width: 100%;
             display: flex;
             align-items: flex-start;
@@ -49,7 +49,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* This is the "magic" property for resizing */
+            object-fit: cover;
             z-index: 0;
             opacity: 0.7;
             pointer-events: none;
@@ -81,9 +81,11 @@
             min-height: 1.2em;
         }
 
+        /* Cursor styles */
         .cursor::after {
             content: '|';
             animation: blink 1s infinite;
+            margin-left: 5px;
         }
         @keyframes blink { 50% { opacity: 0; } }
 
@@ -142,7 +144,7 @@
             grid-template-columns: 180px 1fr;
             gap: 60px;
             font-size: 1.4rem;
-            margin-bottom: 80px;
+            margin-bottom: 10px;
         }
 
         .profile-pic {
@@ -239,33 +241,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Mobile Responsive Fixes --- */
         @media (max-width: 768px) {
-            .hero {
-                height: 60vh; /* Shorten hero on mobile */
-            }
-            .intro-section, .work-item {
-                grid-template-columns: 1fr;
-            }
-            .hero-overlay {
-                padding: 30px;
-                margin-top: 60px;
-            }
+            .hero { height: 60vh; }
+            .intro-section, .work-item { grid-template-columns: 1fr; }
+            .hero-overlay { padding: 30px; margin-top: 60px; }
             .hero-overlay h1 { font-size: 2.5rem; }
             .hero-overlay p { font-size: 0.8rem; }
             nav { padding: 20px; }
             nav a { margin-left: 15px; }
         }
 
-        .line-break {
-            display: block;
+        .line-break { display: block; }
+
+        @media (max-width: 400px) {
+            .line-break { display: inline; }
         }
 
-        /* Optional: Only break on screens wider than mobile */
-        @media (max-width: 400px) {
-            .line-break {
-                display: inline;
-            }
+        /* --- Reduction of space before footer --- */
+        #articles {
+            margin-top: 10px !important; /* Reduced from 80px */
+        }
+        
+        footer {
+            text-align: center; 
+            padding: 10px 10px; /* Adjusted padding */
+            color: #999; 
+            font-size: 1.0rem; 
+            border-top: 1px solid #eee; 
+            position: relative; 
+            z-index: 1;
         }
     </style>
 </head>
@@ -283,9 +287,10 @@
         </video>
         <div class="hero-overlay">
             <h2>Greetings.</h2>
-            <h1 id="typewriter"></h1>
+            <!-- Added 'cursor' class here so it blinks while typing -->
+            <h1 id="typewriter" class="cursor"></h1>
             <p><span class="line-break">Researcher interested in <strong>Geospatial Artificial</span>
-    Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
+            Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
         </div>
     </header>
 
@@ -311,7 +316,6 @@
             </div>
         </section>
 
-        <!-- ... (Rest of sections stay exactly same) ... -->
         <section id="research">
             <h2 class="section-title">📚 Research Work</h2>
             
@@ -356,9 +360,42 @@
             </div>
         </section>
 
-        <section id="articles" style="margin-top: 80px;">
+        <section id="awards" style="margin-top: 80px;">
+            <h2 class="section-title">🏆 Awards & Fellowships</h2>
+            <div class="work-item" style="grid-template-columns: 1fr; display: block;">
+                <div class="work-info">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
+                            <div style="padding-top: 2px;">
+                                <strong>European Research Council (ERC):</strong> Project DISCOVER, number 101076028
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
+                            <div style="padding-top: 2px;">
+                                <strong>MITACS GRI:</strong> Awarded MITACS GRI fellowship (2023) for internship in Canada among students participating over 17 countries globally.
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
+                            <div style="padding-top: 2px;">
+                                <strong>TiHAN IIT-H Startup:</strong> Selected for initial startup funding of <strong>7200 USD</strong> by TiHAN IIT-Hyderabad for a project related to Conditional LiDAR generation.
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 15px;">
+                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
+                            <div style="padding-top: 2px;">
+                                <strong>Academic Poster Presentation:</strong> Awarded best academic poster presentation on National Engineer’s Day (15 September 2022), India held at IISERB campus.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="articles">
             <h2 class="section-title">📖 Expository Articles</h2>
-            
             <div class="work-item">
                 <img src="./assets/ddpm.png" alt="DDPMs" class="work-img">
                 <div class="work-info">
@@ -372,29 +409,31 @@
 
     </main>
 
-    <footer style="text-align: center; padding: 40px; color: #999; font-size: 1.0rem; border-top: 1px solid #eee; position: relative; z-index: 1;">
+    <footer>
         &copy; 2026 Abhishek Kuriyal. The cover video is made with ❤️ using Blender. 
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
-        // Typing Animation
+        // Updated Typing Animation
         const text = "Abhishek Kuriyal";
         const target = document.getElementById("typewriter");
         let i = 0;
+
         function typeWriter() {
             if (i < text.length) {
                 target.innerHTML += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, 100);
             } else {
-                target.classList.add('cursor');
+                // Remove the cursor class once finished typing
+                target.classList.remove('cursor');
             }
         }
         window.addEventListener('load', typeWriter);
 
-        // Faint Three.js Point Cloud
+        // Three.js Point Cloud
         let scene, camera, renderer, cloud;
 
         function init() {
