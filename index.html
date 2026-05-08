@@ -34,7 +34,7 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 80vh;
+            height: 80vh; /* Keeps hero at 80% of viewport height */
             width: 100%;
             display: flex;
             align-items: flex-start;
@@ -45,16 +45,14 @@
 
         #bg-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This is the "magic" property for resizing */
             z-index: 0;
-            transform: translate(-50%, -50%);
             opacity: 0.7;
+            pointer-events: none;
         }
 
         .hero-overlay {
@@ -241,12 +239,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- Mobile Responsive Fixes --- */
         @media (max-width: 768px) {
+            .hero {
+                height: 60vh; /* Shorten hero on mobile */
+            }
             .intro-section, .work-item {
                 grid-template-columns: 1fr;
             }
+            .hero-overlay {
+                padding: 30px;
+                margin-top: 60px;
+            }
             .hero-overlay h1 { font-size: 2.5rem; }
             nav { padding: 20px; }
+            nav a { margin-left: 15px; }
+        }
+
+        .line-break {
+            display: block;
+        }
+
+        /* Optional: Only break on screens wider than mobile */
+        @media (max-width: 600px) {
+            .line-break {
+                display: inline;
+            }
         }
     </style>
 </head>
@@ -265,7 +283,8 @@
         <div class="hero-overlay">
             <h2>Greetings.</h2>
             <h1 id="typewriter"></h1>
-            <p>Researcher interested in <strong>Geospatial Artificial Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
+            <p><span class="line-break">Researcher interested in <strong>Geospatial Artificial</span>
+    Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
         </div>
     </header>
 
@@ -290,6 +309,7 @@
             </div>
         </section>
 
+        <!-- ... (Rest of sections stay exactly same) ... -->
         <section id="research">
             <h2 class="section-title">📚 Research Work</h2>
             
@@ -384,7 +404,6 @@
 
             const geometry = new THREE.BufferGeometry();
             const vertices = [];
-            // Reduced count for better performance/less distraction
             for (let i = 0; i < 3000; i++) {
                 vertices.push(
                     THREE.MathUtils.randFloatSpread(25),
@@ -396,9 +415,9 @@
 
             const material = new THREE.PointsMaterial({ 
                 color: 0x2563eb, 
-                size: 0.03, // Tiny points
+                size: 0.03, 
                 transparent: true, 
-                opacity: 0.15 // Very faint
+                opacity: 0.15 
             });
             
             cloud = new THREE.Points(geometry, material);
@@ -408,7 +427,7 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            cloud.rotation.y += 0.0005; // Slower rotation
+            cloud.rotation.y += 0.0005;
             cloud.rotation.x += 0.0002;
             renderer.render(scene, camera);
         }
