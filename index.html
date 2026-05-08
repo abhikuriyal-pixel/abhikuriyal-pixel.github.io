@@ -51,7 +51,8 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: 0;
+            object-fit: cover;
+            z-index: -1;
             transform: translate(-50%, -50%);
             opacity: 0.7;
         }
@@ -259,7 +260,7 @@
 
     <header class="hero">
         <video autoplay muted loop playsinline id="bg-video">
-            <source src="./videos/hero.mp4" type="video/mp4">
+            <source src="videos/hero.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay">
             <h2>Greetings.</h2>
