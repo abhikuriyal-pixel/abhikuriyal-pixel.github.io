@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kuriyal | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text: #1a1a1a;
+            --secondary-text: #4b5563;
+            --accent-color: #2563eb;
+            --bg-color: #ffffff;
+            --card-hover: rgba(248, 250, 252, 0.9);
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            opacity: 0.7;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 1;
+            padding: 60px;
+            margin-top: 100px;
+            max-width: 800px;
+            color: white;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-overlay h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-overlay h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            min-height: 1.2em;
+        }
+
+        .cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .hero-overlay p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 30px 60px;
+            z-index: 2;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* --- Point Cloud Background --- */
+        #point-cloud-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: #ffffff;
+        }
+
+        /* --- Main Content --- */
+        .container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            z-index: 1;
+        }
+
+        .intro-section {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 60px;
+            font-size: 1.4rem;
+            margin-bottom: 80px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 20px;
+            transition: background 0.3s;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(1px);
+        }
+
+        .work-item:hover {
+            background-color: var(--card-hover);
+        }
+
+        .work-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .work-info h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .authors {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary-text);
+            margin-bottom: 5px;
+        }
+
+        .venue {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .desc {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .intro-section, .work-item {
+                grid-template-columns: 1fr;
+            }
+            .hero-overlay h1 { font-size: 2.5rem; }
+            nav { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">Publications</a>
+        <a href="./files/CV_2026.pdf">CV</a>
+    </nav>
+
+    <header class="hero">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="./videos/0001-0600.mkv" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <h2>Greetings.</h2>
+            <h1 id="typewriter"></h1>
+            <p>Researcher interested in <strong>Geospatial Artificial Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
+        </div>
+    </header>
+
+    <div id="point-cloud-container"></div>
+
+    <main class="container">
+        
+        <section id="about" class="intro-section">
+            <div class="sidebar">
+                <img src="./assets/Abhishek_Kuriyal.jpg" alt="Abhishek Kuriyal" class="profile-pic">
+                <div class="contact-links">
+                    <a href="mailto:abhi.kuriyal@gmail.com">✉️ Email</a>
+                    <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">🎓 Google Scholar</a>
+                    <a href="https://github.com/Abhishek19009">💻 GitHub</a>
+                </div>
+            </div>
+            <div class="bio">
+                <p>👋 <strong>Hello!</strong></p>
+                <p style="margin-top: 15px;">I am a recent Master’s graduate in Data Science and Artificial Intelligence from <strong><a href="https://www.iiserb.ac.in">IISER-B</a></strong>. My research focuses on <strong>semantic segmentation, interpretability of point cloud architectures</strong>, and spatial generalization in satellite imagery.</p>
+                <p style="margin-top: 15px;">Recently, I worked as a <strong>Research Engineer</strong> at <a href="https://imagine-lab.enpc.fr/">Imagine Lab, École des Ponts ParisTech</a>, France, and previously interned at <a href="https://crdig.ulaval.ca/">CRDIG, Université Laval</a>, Canada, as a summer intern.</p>
+                <p style="margin-top: 15px; font-style: italic;">I am currently seeking Researcher/PhD opportunities in 3D computer vision for robotic applications, GeoAI and related fields. I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2 class="section-title">📚 Research Work</h2>
+            
+            <div class="work-item">
+                <img src="./assets/codex.png" alt="CoDEx" class="work-img" style="object-fit: contain; background: #eee;">
+                <div class="work-info">
+                    <h3>CoDEx: Combining Domain Expertise for Spatial Generalization in Satellite Image Analysis</h3>
+                    <p class="authors">Abhishek Kuriyal, Elliot Vincent, Mathieu Aubry, Loic Landrieu</p>
+                    <p class="venue">EarthVision 2025 - CVPR Workshop</p>
+                    <p class="desc">Spatial domain generalization for satellite imagery using region-specific expert models.</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./assets/pctfusion.png" alt="pCTFusion" class="work-img" style="object-fit: contain; background: #eee;">
+                <div class="work-info">
+                    <h3>pCTFusion: Point Convolution-Transformer Fusion with Semantic Aware Loss</h3>
+                    <p class="authors">Abhishek Kuriyal, V. Kumar, B. Lohani</p>
+                    <p class="venue">Journal of Computer Science (Springer Nature), 2024</p>
+                    <p class="desc">A hybrid convolution-attention architecture emphasizing semantic boundaries with position-aware loss.</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./assets/pgscam.png" alt="pGS-CAM" class="work-img">
+                <div class="work-info">
+                    <h3>pGS-CAM: Interpretable LiDAR Point Cloud Segmentation via Gradient-Based Localization</h3>
+                    <p class="authors">Abhishek Kuriyal, V. Kumar</p>
+                    <p class="venue">ICLR 2023 (Tiny Papers Track)</p>
+                    <p class="desc">First study on gradient-based localization for LiDAR semantic segmentation. Enables interpretable saliency maps in 3D networks.</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./assets/thesis.png" alt="Tree Extraction" class="work-img" style="filter: grayscale(0.5);">
+                <div class="work-info">
+                    <h3>Individual Tree Extraction in Airborne LiDAR Point Clouds of Boreal Forest Environments</h3>
+                    <p class="authors">Abhishek Kuriyal</p>
+                    <p class="venue">Master Thesis</p>
+                    <p class="desc">Deep learning-based individual tree detection from airborne LiDAR in Canadian boreal forests.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="articles" style="margin-top: 80px;">
+            <h2 class="section-title">📖 Expository Articles</h2>
+            
+            <div class="work-item">
+                <img src="./assets/ddpm.png" alt="DDPMs" class="work-img">
+                <div class="work-info">
+                    <h3>Unpacking DDPMs: What's Really Going On?</h3>
+                    <p class="authors">Abhishek Kuriyal</p>
+                    <p class="venue">Technical Note, 2026</p>
+                    <p class="desc">Diving deeper into the mathematical beauty and intricacy of Denoising Diffusion Probabilistic Models (DDPMs).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #999; font-size: 1.0rem; border-top: 1px solid #eee; position: relative; z-index: 1;">
+        &copy; 2026 Abhishek Kuriyal. The cover video is made with ❤️ using Blender. 
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        // Typing Animation
+        const text = "Abhishek Kuriyal";
+        const target = document.getElementById("typewriter");
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                target.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                target.classList.add('cursor');
+            }
+        }
+        window.addEventListener('load', typeWriter);
+
+        // Faint Three.js Point Cloud
+        let scene, camera, renderer, cloud;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('point-cloud-container').appendChild(renderer.domElement);
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            // Reduced count for better performance/less distraction
+            for (let i = 0; i < 3000; i++) {
+                vertices.push(
+                    THREE.MathUtils.randFloatSpread(25),
+                    THREE.MathUtils.randFloatSpread(25),
+                    THREE.MathUtils.randFloatSpread(25)
+                );
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            const material = new THREE.PointsMaterial({ 
+                color: 0x2563eb, 
+                size: 0.03, // Tiny points
+                transparent: true, 
+                opacity: 0.15 // Very faint
+            });
+            
+            cloud = new THREE.Points(geometry, material);
+            scene.add(cloud);
+            camera.position.z = 12;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cloud.rotation.y += 0.0005; // Slower rotation
+            cloud.rotation.x += 0.0002;
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
