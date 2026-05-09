@@ -287,8 +287,9 @@
         </video>
         <div class="hero-overlay">
             <h2>Greetings.</h2>
-            <h1 id="typewriter" class="cursor"></h1>
-            <p><span class="line-break">Researcher interested in <strong>Geospatial Artificial</span>
+            <!-- <h1 id="typewriter" class="cursor"></h1> -->
+            <h1>Abhishek Kuriyal</h1>
+            <p><span class="line-break">Researcher in <strong>Geospatial Artificial</span>
             Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
         </div>
     </header>
@@ -299,7 +300,7 @@
         
         <section id="about" class="intro-section">
             <div class="sidebar">
-                <img src="./assets/Abhishek_Kuriyal.jpg" alt="Abhishek Kuriyal" class="profile-pic">
+                <img src="./assets/Abhishek_Kuriyal.webp" alt="Abhishek Kuriyal" class="profile-pic">
                 <div class="contact-links">
                     <a href="mailto:abhi.kuriyal@gmail.com">✉️ Email</a>
                     <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">🎓 Google Scholar</a>
@@ -310,8 +311,8 @@
                 <p>👋 <strong>Hello!</strong></p>
                 <p style="margin-top: 15px;">I am a recent Master’s graduate in Data Science and Artificial Intelligence from <strong><a href="https://www.iiserb.ac.in">IISER-B</a></strong>. My prior research focuses on <strong>semantic segmentation, interpretability of point cloud architectures</strong>, and <strong>spatial generalization</strong> in satellite imagery.</p>
                 <p style="margin-top: 15px;">Recently, I worked as a <strong>Research Engineer</strong> at <a href="https://imagine-lab.enpc.fr/">Imagine Lab, École des Ponts ParisTech</a>, France, and previously interned at <a href="https://crdig.ulaval.ca/">CRDIG, Université Laval</a>, Canada, as a summer intern.</p>
-                <p style="margin-top: 15px; font-style: italic;">I am currently seeking Researcher/PhD opportunities in 3D computer vision for robotic applications and related fields. I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
-                <p style="margin-top: 15px;">Apart from my academic background, I have knowledge of Digital, Analog Electronics and Robotic simulations.</p>
+                <p style="margin-top: 15px; font-style: italic;">I am currently seeking Researcher/PhD opportunities in 3D computer vision, mathematical modeling and related fields. </p>
+                <p style="margin-top: 15px;">I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
             </div>
         </section>
 
@@ -319,7 +320,7 @@
             <h2 class="section-title">📚 Research Work</h2>
             
             <div class="work-item">
-                <img src="./assets/codex.png" alt="CoDEx" class="work-img" style="object-fit: contain; background: #eee;">
+                <img src="./assets/codex.webp" alt="CoDEx" class="work-img" style="object-fit: contain; background: #eee;">
                 <div class="work-info">
                     <h3>CoDEx: Combining Domain Expertise for Spatial Generalization in Satellite Image Analysis</h3>
                     <p class="authors">Abhishek Kuriyal, Elliot Vincent, Mathieu Aubry, Loic Landrieu</p>
@@ -329,7 +330,7 @@
             </div>
 
             <div class="work-item">
-                <img src="./assets/pctfusion.png" alt="pCTFusion" class="work-img" style="object-fit: contain; background: #eee;">
+                <img src="./assets/pctfusion.webp" alt="pCTFusion" class="work-img" style="object-fit: contain; background: #eee;">
                 <div class="work-info">
                     <h3>pCTFusion: Point Convolution-Transformer Fusion with Semantic Aware Loss</h3>
                     <p class="authors">Abhishek Kuriyal, V. Kumar, B. Lohani</p>
@@ -339,7 +340,7 @@
             </div>
 
             <div class="work-item">
-                <img src="./assets/pgscam.png" alt="pGS-CAM" class="work-img">
+                <img src="./assets/pgscam.webp" alt="pGS-CAM" class="work-img">
                 <div class="work-info">
                     <h3>pGS-CAM: Interpretable LiDAR Point Cloud Segmentation via Gradient-Based Localization</h3>
                     <p class="authors">Abhishek Kuriyal, V. Kumar</p>
@@ -349,7 +350,7 @@
             </div>
 
             <div class="work-item">
-                <img src="./assets/thesis.png" alt="Tree Extraction" class="work-img" style="filter: grayscale(0.5);">
+                <img src="./assets/thesis.webp" alt="Tree Extraction" class="work-img" style="filter: grayscale(0.5);">
                 <div class="work-info">
                     <h3>Individual Tree Extraction in Airborne LiDAR Point Clouds of Boreal Forest Environments</h3>
                     <p class="authors">Abhishek Kuriyal</p>
@@ -396,7 +397,7 @@
         <section id="articles">
             <h2 class="section-title">📖 Expository Articles</h2>
             <div class="work-item">
-                <img src="./assets/ddpm.png" alt="DDPMs" class="work-img">
+                <img src="./assets/ddpm.webp" alt="DDPMs" class="work-img">
                 <div class="work-info">
                     <h3>Unpacking DDPMs: What's Really Going On?</h3>
                     <p class="authors">Abhishek Kuriyal</p>
@@ -414,72 +415,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <script>
-        // Updated Typing Animation
-        const text = "Abhishek Kuriyal";
-        const target = document.getElementById("typewriter");
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                target.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                // Remove the cursor class once finished typing
-                target.classList.remove('cursor');
-            }
-        }
-        window.addEventListener('load', typeWriter);
-
-        // Three.js Point Cloud
-        let scene, camera, renderer, cloud;
-
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('point-cloud-container').appendChild(renderer.domElement);
-
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            for (let i = 0; i < 3000; i++) {
-                vertices.push(
-                    THREE.MathUtils.randFloatSpread(25),
-                    THREE.MathUtils.randFloatSpread(25),
-                    THREE.MathUtils.randFloatSpread(25)
-                );
-            }
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-            const material = new THREE.PointsMaterial({ 
-                color: 0x2563eb, 
-                size: 0.03, 
-                transparent: true, 
-                opacity: 0.15 
-            });
-            
-            cloud = new THREE.Points(geometry, material);
-            scene.add(cloud);
-            camera.position.z = 12;
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            cloud.rotation.y += 0.0005;
-            cloud.rotation.x += 0.0002;
-            renderer.render(scene, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        init();
-        animate();
-    </script>
 </body>
 </html>
