@@ -3,558 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Kuriyal | Portfolio</title>
+    <meta name="description" content="Abhishek Kuriyal — researcher in Geospatial Artificial Intelligence and 3D Computer Vision.">
+    <title>Abhishek Kuriyal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-text: #1a1a1a;
-            --secondary-text: #4b5563;
-            --accent-color: #2563eb;
-            --bg-color: #ffffff;
-            --card-hover: rgba(248, 250, 252, 0.9);
-            --border-color: #e5e7eb;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            position: relative;
-            height: 80vh; 
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            overflow: hidden;
-            background: #000;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .hero-overlay {
-            position: relative;
-            z-index: 1;
-            padding: 60px;
-            margin-top: 100px;
-            max-width: 800px;
-            color: white;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .hero-overlay h2 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-overlay h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            min-height: 1.2em;
-        }
-
-        /* Cursor styles */
-        .cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-            margin-left: 5px;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .hero-overlay p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        /* --- Navigation --- */
-        nav {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 30px 60px;
-            z-index: 2;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 400;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        /* --- Point Cloud Background --- */
-        #point-cloud-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            background: #ffffff;
-        }
-
-        /* --- Main Content --- */
-        .container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 40px;
-            z-index: 1;
-        }
-
-        .intro-section {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 60px;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .contact-links {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .contact-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.3rem;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .work-item {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-            padding: 20px;
-            transition: background 0.3s;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(1px);
-        }
-
-        .work-item:hover {
-            background-color: var(--card-hover);
-        }
-
-        .work-img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-        }
-
-        .work-info h3 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        /* --- Development Projects --- */
-        #development {
-            margin-top: 70px;
-        }
-
-        .development-project {
-            align-items: start;
-        }
-
-        .development-project .work-info {
-            min-width: 0;
-        }
-
-        .project-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 280px;
-            aspect-ratio: 7 / 5;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background: #f8fafc;
-        }
-
-        .project-logo img {
-            display: block;
-            width: 144px;
-            max-width: 60%;
-            height: auto;
-        }
-
-        .development-project h3 a,
-        .project-integrations h4 a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .development-project a:hover {
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .project-integrations {
-            display: grid;
-            gap: 24px;
-            margin-top: 24px;
-            padding-left: 24px;
-            border-left: 2px solid var(--border-color);
-        }
-
-        .project-integrations h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-
-        .project-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            margin-top: 18px;
-        }
-
-        .project-links a {
-            color: var(--accent-color);
-            font-size: 1rem;
-            text-decoration: none;
-        }
-
-        .authors {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--primary-text);
-            margin-bottom: 5px;
-        }
-
-        .venue {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .desc {
-            color: var(--secondary-text);
-            font-size: 1.1rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .hero { height: 60vh; }
-            .intro-section, .work-item { grid-template-columns: 1fr; }
-            .project-integrations { padding-left: 16px; }
-            .hero-overlay { padding: 30px; margin-top: 60px; }
-            .hero-overlay h1 { font-size: 2.5rem; }
-            .hero-overlay p { font-size: 0.8rem; }
-            nav { padding: 20px; }
-            nav a { margin-left: 15px; }
-        }
-
-        .line-break { display: block; }
-
-        @media (max-width: 400px) {
-            .line-break { display: inline; }
-        }
-
-        /* --- Reduction of space before footer --- */
-        #articles {
-            margin-top: 10px !important; /* Reduced from 80px */
-        }
-        
-        footer {
-            text-align: center; 
-            padding: 10px 10px; 
-            color: #999; 
-            font-size: 1.0rem; 
-            border-top: 1px solid #eee; 
-            position: relative; 
-            z-index: 1;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#development">Development</a>
-        <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">Publications</a>
-        <a href="./files/CV_2026.pdf">CV</a>
-    </nav>
-
-    <header class="hero">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="videos/hero.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay">
-            <h2>Greetings.</h2>
-            <!-- <h1 id="typewriter" class="cursor"></h1> -->
-            <h1>Abhishek Kuriyal</h1>
-            <p><span class="line-break">Researcher in <strong>Geospatial Artificial</span>
-            Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
-        </div>
-    </header>
-
-    <div id="point-cloud-container"></div>
-
-    <main class="container">
-        
-        <section id="about" class="intro-section">
-            <div class="sidebar">
-                <img src="./assets/Abhishek_Kuriyal.webp" alt="Abhishek Kuriyal" class="profile-pic">
-                <div class="contact-links">
-                    <a href="mailto:abhi.kuriyal@gmail.com">✉️ Email</a>
-                    <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">🎓 Google Scholar</a>
-                    <a href="https://github.com/Abhishek19009">💻 GitHub</a>
-                </div>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page">
+        <header id="about" class="intro">
+            <div class="intro-copy">
+                <h1>Abhishek Kuriyal</h1>
+                <p class="research-role">Researcher in <strong>Geospatial Artificial Intelligence</strong> and <strong>3D Computer Vision</strong>.</p>
+                <p><strong>Hello!</strong></p>
+                <p>I am a recent Master’s graduate in Data Science and Artificial Intelligence from <strong><a href="https://www.iiserb.ac.in">IISER-B</a></strong>. My prior research focuses on <strong>semantic segmentation, interpretability of point cloud architectures</strong>, and <strong>spatial generalization</strong> in satellite imagery.</p>
+                <p>Recently, I worked as a <strong>Research Engineer</strong> at <a href="https://imagine-lab.enpc.fr/">Imagine Lab, École des Ponts ParisTech</a>, France, and previously interned at <a href="https://crdig.ulaval.ca/">CRDIG, Université Laval</a>, Canada, as a summer intern.</p>
+                <p><em>I am currently seeking Researcher/PhD opportunities in 3D computer vision, mathematical modeling and related fields.</em></p>
+                <p>I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
+                <nav class="profile-links" aria-label="Contact and academic profiles">
+                    <a href="mailto:abhi.kuriyal@gmail.com">Email</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&amp;hl=en">Google Scholar</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="https://github.com/Abhishek19009">GitHub</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="./files/CV_2026.pdf">CV</a>
+                </nav>
             </div>
-            <div class="bio">
-                <p>👋 <strong>Hello!</strong></p>
-                <p style="margin-top: 15px;">I am a recent Master’s graduate in Data Science and Artificial Intelligence from <strong><a href="https://www.iiserb.ac.in">IISER-B</a></strong>. My prior research focuses on <strong>semantic segmentation, interpretability of point cloud architectures</strong>, and <strong>spatial generalization</strong> in satellite imagery.</p>
-                <p style="margin-top: 15px;">Recently, I worked as a <strong>Research Engineer</strong> at <a href="https://imagine-lab.enpc.fr/">Imagine Lab, École des Ponts ParisTech</a>, France, and previously interned at <a href="https://crdig.ulaval.ca/">CRDIG, Université Laval</a>, Canada, as a summer intern.</p>
-                <p style="margin-top: 15px; font-style: italic;">I am currently seeking Researcher/PhD opportunities in 3D computer vision, mathematical modeling and related fields. </p>
-                <p style="margin-top: 15px;">I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
-            </div>
-        </section>
+            <img class="profile-photo" src="./assets/Abhishek_Kuriyal.webp" alt="Abhishek Kuriyal" width="300" height="300" fetchpriority="high">
+        </header>
 
-        <section id="development" aria-labelledby="development-title">
-            <h2 id="development-title" class="section-title">💻 Development</h2>
+        <main id="main-content">
+            <section id="development" class="content-section" aria-labelledby="development-title">
+                <h2 id="development-title">Development</h2>
 
-            <article class="work-item development-project" aria-labelledby="docfoo-title">
-                <a class="project-logo" href="https://abhikuriyal-pixel.github.io/docfoo-cli/" aria-label="Visit DocFoo">
-                    <img src="./assets/projects/docfoo.svg" alt="DocFoo logo" width="512" height="512" loading="lazy">
-                </a>
-                <div class="work-info">
-                    <h3 id="docfoo-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">DocFoo project</a></h3>
-                    <p class="desc">DocFoo is a fast, vectorless, non-agentic retrieval engine for technical papers, books and documents. I built it to keep answers confined to the sources you actually work with. It retrieves the evidence first, then lets a local or cloud model write the answer, with citations and original figures, tables and code. The core is written in Rust, and a small local model can handle the answer-writing step.</p>
+                <article class="project" aria-labelledby="docfoo-title">
+                    <a class="project-image" href="https://abhikuriyal-pixel.github.io/docfoo-cli/" aria-label="Visit DocFoo">
+                        <img src="./assets/projects/docfoo.svg" alt="DocFoo logo" width="80" height="80" loading="lazy">
+                    </a>
+                    <div class="item-content">
+                        <h3 id="docfoo-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">DocFoo project</a></h3>
+                        <div class="item-links">
+                            <a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">Explore DocFoo</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="https://github.com/abhikuriyal-pixel/docfoo-cli">GitHub</a>
+                        </div>
+                        <p class="description">DocFoo is a fast, vectorless, non-agentic retrieval engine for technical papers, books and documents. I built it to keep answers confined to the sources you actually work with. It retrieves the evidence first, then lets a local or cloud model write the answer, with citations and original figures, tables and code. The core is written in Rust, and a small local model can handle the answer-writing step.</p>
 
-                    <div class="project-integrations">
-                        <section aria-labelledby="docfoo-pikins-title">
-                            <h4 id="docfoo-pikins-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#pikins">Integration with PiKins</a></h4>
-                            <p class="desc">The easiest way to work with DocFoo. Import and index your documents in PiKins, then chat with DocFoo like a teammate. Open cited passages in the reader, ask questions beside the text, or continue the same conversation on Telegram.</p>
-                        </section>
-                        <section aria-labelledby="docfoo-hermes-title">
-                            <h4 id="docfoo-hermes-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#hermes">Integration with Hermes</a></h4>
-                            <p class="desc">Already using Hermes? Set up the DocFoo plugin once, then start your document questions with <code>dfq</code> in Slack or another connected chat. DocFoo looks through your library and returns answers with citations and original figures. Hermes delivers the answer without rewriting it.</p>
-                        </section>
-                        <section aria-labelledby="docfoo-agents-title">
-                            <h4 id="docfoo-agents-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#agents">Integration with coding agents</a></h4>
-                            <p class="desc">The same DocFoo skill works with Pi, OpenCode, Codex and Claude Code. It tells the agent when to scan, index and query your documents, and how to keep source citations and original figures in the answer.</p>
-                        </section>
+                        <div class="project-entries">
+                            <section aria-labelledby="docfoo-pikins-title">
+                                <h4 id="docfoo-pikins-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#pikins">Integration with PiKins</a></h4>
+                                <p>The easiest way to work with DocFoo. Import and index your documents in PiKins, then chat with DocFoo like a teammate. Open cited passages in the reader, ask questions beside the text, or continue the same conversation on Telegram.</p>
+                            </section>
+                            <section aria-labelledby="docfoo-hermes-title">
+                                <h4 id="docfoo-hermes-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#hermes">Integration with Hermes</a></h4>
+                                <p>Already using Hermes? Set up the DocFoo plugin once, then start your document questions with <code>dfq</code> in Slack or another connected chat. DocFoo looks through your library and returns answers with citations and original figures. Hermes delivers the answer without rewriting it.</p>
+                            </section>
+                            <section aria-labelledby="docfoo-agents-title">
+                                <h4 id="docfoo-agents-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#agents">Integration with coding agents</a></h4>
+                                <p>The same DocFoo skill works with Pi, OpenCode, Codex and Claude Code. It tells the agent when to scan, index and query your documents, and how to keep source citations and original figures in the answer.</p>
+                            </section>
+                        </div>
                     </div>
+                </article>
 
-                    <div class="project-links">
-                        <a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">Explore DocFoo ↗</a>
-                        <a href="https://github.com/abhikuriyal-pixel/docfoo-cli">GitHub ↗</a>
+                <article class="project" aria-labelledby="pikins-title">
+                    <a class="project-image" href="https://abhikuriyal-pixel.github.io/PiKins/" aria-label="Visit PiKins">
+                        <img src="./assets/projects/pikins.svg" alt="PiKins logo" width="80" height="80" loading="lazy">
+                    </a>
+                    <div class="item-content">
+                        <h3 id="pikins-title"><a href="https://abhikuriyal-pixel.github.io/PiKins/">PiKins</a></h3>
+                        <div class="item-links">
+                            <a href="https://abhikuriyal-pixel.github.io/PiKins/">Explore PiKins</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="https://github.com/abhikuriyal-pixel/PiKins">GitHub</a>
+                        </div>
+                        <p class="description">PiKins is a collaborative desktop app for working with persistent AI teammates. Each teammate has its own model, memory and workspace. Talk to them directly, or ask Chief to delegate work and bring their reports together. I built it for knowledge workers who need reliable document answers through DocFoo, alongside reactive marimo notebooks, connected apps and a browser. You choose the tools each teammate can use and review actions that need your approval.</p>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="work-item development-project" aria-labelledby="pikins-title">
-                <a class="project-logo" href="https://abhikuriyal-pixel.github.io/PiKins/" aria-label="Visit PiKins">
-                    <img src="./assets/projects/pikins.svg" alt="PiKins logo" width="256" height="256" loading="lazy">
-                </a>
-                <div class="work-info">
-                    <h3 id="pikins-title"><a href="https://abhikuriyal-pixel.github.io/PiKins/">PiKins</a></h3>
-                    <p class="desc">PiKins is a collaborative desktop app for working with persistent AI teammates. Each teammate has its own model, memory and workspace. Talk to them directly, or ask Chief to delegate work and bring their reports together. I built it for knowledge workers who need reliable document answers through DocFoo, alongside reactive marimo notebooks, connected apps and a browser. You choose the tools each teammate can use and review actions that need your approval.</p>
-                    <div class="project-links">
-                        <a href="https://abhikuriyal-pixel.github.io/PiKins/">Explore PiKins ↗</a>
-                        <a href="https://github.com/abhikuriyal-pixel/PiKins">GitHub ↗</a>
+                <article class="project" aria-labelledby="llama-cpp-title">
+                    <a class="project-image" href="https://github.com/ggml-org/llama.cpp" aria-label="About llama.cpp">
+                        <img src="./assets/projects/llama-cpp.svg" alt="llama.cpp logo" width="80" height="80" loading="lazy">
+                    </a>
+                    <div class="item-content">
+                        <h3 id="llama-cpp-title">Model ports for llama.cpp</h3>
+                        <p class="description">I’m implementing less-common architectures in llama.cpp, a lightweight C/C++ inference engine for running language and vision-language models locally. For CPU/GPU edge deployments, its wider choice of low-bit quantization formats, fast native kernels and lean runtime can make it a better fit than ONNX Runtime, particularly when memory and runtime overhead matter. The goal is simple: useful models running locally, without a heavy inference stack.</p>
+
+                        <div class="project-entries">
+                            <section aria-labelledby="falconocr-title">
+                                <h4 id="falconocr-title"><a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">FalconOCR</a></h4>
+                                <p>I’m bringing FalconOCR, TII’s 270M-parameter OCR model, to llama.cpp. It processes image patches and text in a single Transformer. With about 30% of GLM-OCR’s 900M parameters and comparable OCR performance in the model authors’ reported evaluations, it is a promising fit for memory-constrained edge devices.</p>
+                                <div class="item-links entry-links">
+                                    <a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">GitHub</a>
+                                    <span aria-hidden="true">/</span>
+                                    <a href="https://huggingface.co/tiiuae/Falcon-OCR">Model &amp; benchmarks</a>
+                                </div>
+                            </section>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </section>
 
-            <article class="work-item development-project" aria-labelledby="llama-cpp-title">
-                <a class="project-logo" href="https://github.com/ggml-org/llama.cpp" aria-label="About llama.cpp">
-                    <img src="./assets/projects/llama-cpp.svg" alt="llama.cpp logo" width="250" height="250" loading="lazy">
-                </a>
-                <div class="work-info">
-                    <h3 id="llama-cpp-title">Model ports for llama.cpp</h3>
-                    <p class="desc">I’m implementing less-common architectures in llama.cpp, a lightweight C/C++ inference engine for running language and vision-language models locally. For CPU/GPU edge deployments, its wider choice of low-bit quantization formats, fast native kernels and lean runtime can make it a better fit than ONNX Runtime, particularly when memory and runtime overhead matter. The goal is simple: useful models running locally, without a heavy inference stack.</p>
+            <section id="research" class="content-section" aria-labelledby="research-title">
+                <h2 id="research-title">Research</h2>
 
-                    <div class="project-integrations">
-                        <section aria-labelledby="falconocr-title">
-                            <h4 id="falconocr-title"><a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">FalconOCR</a></h4>
-                            <p class="desc">I’m bringing FalconOCR, TII’s 270M-parameter OCR model, to llama.cpp. It processes image patches and text in a single Transformer. With about 30% of GLM-OCR’s 900M parameters and comparable OCR performance in the model authors’ reported evaluations, it is a promising fit for memory-constrained edge devices.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">GitHub ↗</a>
-                                <a href="https://huggingface.co/tiiuae/Falcon-OCR">Model &amp; benchmarks ↗</a>
-                            </div>
-                        </section>
+                <article class="publication" aria-labelledby="codex-title">
+                    <img class="publication-image" src="./assets/codex.webp" alt="CoDEx" width="200" height="130" loading="lazy">
+                    <div class="item-content">
+                        <h3 id="codex-title">CoDEx: Combining Domain Expertise for Spatial Generalization in Satellite Image Analysis</h3>
+                        <p class="authors"><strong>Abhishek Kuriyal</strong>, Elliot Vincent, Mathieu Aubry, Loic Landrieu</p>
+                        <p class="venue">EarthVision 2025 - CVPR Workshop</p>
+                        <p class="description">Spatial domain generalization for satellite imagery using region-specific expert models.</p>
                     </div>
-                </div>
-            </article>
-        </section>
+                </article>
 
-        <section id="research">
-            <h2 class="section-title">📚 Research Work</h2>
-            
-            <div class="work-item">
-                <img src="./assets/codex.webp" alt="CoDEx" class="work-img" style="object-fit: contain; background: #eee;">
-                <div class="work-info">
-                    <h3>CoDEx: Combining Domain Expertise for Spatial Generalization in Satellite Image Analysis</h3>
-                    <p class="authors">Abhishek Kuriyal, Elliot Vincent, Mathieu Aubry, Loic Landrieu</p>
-                    <p class="venue">EarthVision 2025 - CVPR Workshop</p>
-                    <p class="desc">Spatial domain generalization for satellite imagery using region-specific expert models.</p>
-                </div>
-            </div>
+                <article class="publication" aria-labelledby="pctfusion-title">
+                    <img class="publication-image" src="./assets/pctfusion.webp" alt="pCTFusion" width="200" height="130" loading="lazy">
+                    <div class="item-content">
+                        <h3 id="pctfusion-title">pCTFusion: Point Convolution-Transformer Fusion with Semantic Aware Loss</h3>
+                        <p class="authors"><strong>Abhishek Kuriyal</strong>, V. Kumar, B. Lohani</p>
+                        <p class="venue">Journal of Computer Science (Springer Nature), 2024</p>
+                        <p class="description">A hybrid convolution-attention architecture emphasizing semantic boundaries with position-aware loss.</p>
+                    </div>
+                </article>
 
-            <div class="work-item">
-                <img src="./assets/pctfusion.webp" alt="pCTFusion" class="work-img" style="object-fit: contain; background: #eee;">
-                <div class="work-info">
-                    <h3>pCTFusion: Point Convolution-Transformer Fusion with Semantic Aware Loss</h3>
-                    <p class="authors">Abhishek Kuriyal, V. Kumar, B. Lohani</p>
-                    <p class="venue">Journal of Computer Science (Springer Nature), 2024</p>
-                    <p class="desc">A hybrid convolution-attention architecture emphasizing semantic boundaries with position-aware loss.</p>
-                </div>
-            </div>
+                <article class="publication" aria-labelledby="pgscam-title">
+                    <img class="publication-image" src="./assets/pgscam.webp" alt="pGS-CAM" width="200" height="130" loading="lazy">
+                    <div class="item-content">
+                        <h3 id="pgscam-title">pGS-CAM: Interpretable LiDAR Point Cloud Segmentation via Gradient-Based Localization</h3>
+                        <p class="authors"><strong>Abhishek Kuriyal</strong>, V. Kumar</p>
+                        <p class="venue">ICLR 2023 (Tiny Papers Track)</p>
+                        <p class="description">First study on gradient-based localization for LiDAR semantic segmentation. Enables interpretable saliency maps in 3D networks.</p>
+                    </div>
+                </article>
 
-            <div class="work-item">
-                <img src="./assets/pgscam.webp" alt="pGS-CAM" class="work-img">
-                <div class="work-info">
-                    <h3>pGS-CAM: Interpretable LiDAR Point Cloud Segmentation via Gradient-Based Localization</h3>
-                    <p class="authors">Abhishek Kuriyal, V. Kumar</p>
-                    <p class="venue">ICLR 2023 (Tiny Papers Track)</p>
-                    <p class="desc">First study on gradient-based localization for LiDAR semantic segmentation. Enables interpretable saliency maps in 3D networks.</p>
-                </div>
-            </div>
+                <article class="publication" aria-labelledby="thesis-title">
+                    <img class="publication-image" src="./assets/thesis.webp" alt="Tree Extraction" width="200" height="130" loading="lazy">
+                    <div class="item-content">
+                        <h3 id="thesis-title">Individual Tree Extraction in Airborne LiDAR Point Clouds of Boreal Forest Environments</h3>
+                        <p class="authors"><strong>Abhishek Kuriyal</strong></p>
+                        <p class="venue">Master Thesis</p>
+                        <p class="description">Deep learning-based individual tree detection from airborne LiDAR in Canadian boreal forests.</p>
+                    </div>
+                </article>
+            </section>
 
-            <div class="work-item">
-                <img src="./assets/thesis.webp" alt="Tree Extraction" class="work-img" style="filter: grayscale(0.5);">
-                <div class="work-info">
-                    <h3>Individual Tree Extraction in Airborne LiDAR Point Clouds of Boreal Forest Environments</h3>
-                    <p class="authors">Abhishek Kuriyal</p>
-                    <p class="venue">Master Thesis</p>
-                    <p class="desc">Deep learning-based individual tree detection from airborne LiDAR in Canadian boreal forests.</p>
-                </div>
-            </div>
-        </section>
+            <section id="awards" class="content-section" aria-labelledby="awards-title">
+                <h2 id="awards-title">Awards &amp; Fellowships</h2>
+                <ul class="recognition-list">
+                    <li><strong>European Research Council (ERC):</strong> Project DISCOVER, number 101076028</li>
+                    <li><strong>MITACS GRI:</strong> Awarded MITACS GRI fellowship (2023) for internship in Canada among students participating over 17 countries globally.</li>
+                    <li><strong>TiHAN IIT-H Startup:</strong> Selected for initial startup funding of <strong>7200 USD</strong> by TiHAN IIT-Hyderabad for a project related to Conditional LiDAR generation.</li>
+                    <li><strong>Academic Poster Presentation:</strong> Awarded best academic poster presentation on National Engineer’s Day (15 September 2022), India held at IISERB campus.</li>
+                </ul>
+            </section>
 
-        <section id="awards" style="margin-top: 80px;">
-            <h2 class="section-title">🏆 Awards & Fellowships</h2>
-            <div class="work-item" style="grid-template-columns: 1fr; display: block;">
-                <div class="work-info">
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
-                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
-                            <div style="padding-top: 2px;">
-                                <strong>European Research Council (ERC):</strong> Project DISCOVER, number 101076028
-                            </div>
-                        </li>
-                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
-                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
-                            <div style="padding-top: 2px;">
-                                <strong>MITACS GRI:</strong> Awarded MITACS GRI fellowship (2023) for internship in Canada among students participating over 17 countries globally.
-                            </div>
-                        </li>
-                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;">
-                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
-                            <div style="padding-top: 2px;">
-                                <strong>TiHAN IIT-H Startup:</strong> Selected for initial startup funding of <strong>7200 USD</strong> by TiHAN IIT-Hyderabad for a project related to Conditional LiDAR generation.
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px;">
-                            <span style="color: var(--accent-color); font-size: 1.5rem; line-height: 1.2;">•</span>
-                            <div style="padding-top: 2px;">
-                                <strong>Academic Poster Presentation:</strong> Awarded best academic poster presentation on National Engineer’s Day (15 September 2022), India held at IISERB campus.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            <section id="articles" class="content-section" aria-labelledby="articles-title">
+                <h2 id="articles-title">Expository Articles</h2>
+                <article class="publication" aria-labelledby="ddpm-title">
+                    <img class="publication-image" src="./assets/ddpm.webp" alt="DDPMs" width="200" height="130" loading="lazy">
+                    <div class="item-content">
+                        <h3 id="ddpm-title">Unpacking DDPMs: What's Really Going On?</h3>
+                        <p class="authors"><strong>Abhishek Kuriyal</strong></p>
+                        <p class="venue">Technical Note, 2026</p>
+                        <p class="description">Diving deeper into the mathematical beauty and intricacy of Denoising Diffusion Probabilistic Models (DDPMs).</p>
+                    </div>
+                </article>
+            </section>
 
-        <section id="articles">
-            <h2 class="section-title">📖 Expository Articles</h2>
-            <div class="work-item">
-                <img src="./assets/ddpm.webp" alt="DDPMs" class="work-img">
-                <div class="work-info">
-                    <h3>Unpacking DDPMs: What's Really Going On?</h3>
-                    <p class="authors">Abhishek Kuriyal</p>
-                    <p class="venue">Technical Note, 2026</p>
-                    <p class="desc">Diving deeper into the mathematical beauty and intricacy of Denoising Diffusion Probabilistic Models (DDPMs).</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        &copy; 2026 Abhishek Kuriyal. The cover video is made with ❤️ using Blender. 
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
+            <section class="closing-note" aria-labelledby="closing-title">
+                <h2 id="closing-title">Thanks for stopping by.</h2>
+                <p>Wishing you good questions, meaningful discoveries, and a lovely day.</p>
+                <figure class="closing-film">
+                    <video autoplay muted loop playsinline preload="metadata" poster="./assets/blender-scene.webp" width="640" height="360" aria-label="An original Blender animation of a peaceful outdoor scene">
+                        <source src="./videos/hero.mp4" type="video/mp4">
+                        <a href="./videos/hero.mp4">Watch the Blender animation</a>
+                    </video>
+                    <figcaption>Made with love in Blender.</figcaption>
+                </figure>
+            </section>
+        </main>
+        <footer>&copy; 2026 Abhishek</footer>
+    </div>
 </body>
 </html>

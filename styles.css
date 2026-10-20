@@ -1,0 +1,334 @@
+/* The reference's plain academic layout: white, black text, blue links. */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: #000;
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+h1, h2, h3, h4, p, figure {
+    margin: 0;
+}
+
+a {
+    color: #0076df;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0059ab;
+    text-decoration: underline;
+}
+
+a:focus-visible,
+video:focus-visible {
+    outline: 2px solid #0076df;
+    outline-offset: 4px;
+}
+
+img, video {
+    display: block;
+    max-width: 100%;
+}
+
+.page {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 36px 30px 24px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    padding: 8px 12px;
+    background: white;
+    transform: translateY(-160%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+/* Name and biography on the left; circular photograph on the right. */
+.intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: center;
+    gap: 60px;
+}
+
+.intro h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.intro-copy > p + p {
+    margin-top: 14px;
+}
+
+.research-role {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px 7px;
+    margin-top: 20px;
+}
+
+/* Simple, unboxed research and development lists. */
+.content-section {
+    margin-top: 50px;
+}
+
+.content-section > h2 {
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.project,
+.publication {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: start;
+    gap: 32px;
+}
+
+.project + .project,
+.publication + .publication {
+    margin-top: 44px;
+}
+
+.project-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5px;
+}
+
+.project-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.item-content {
+    min-width: 0;
+}
+
+.item-content h3 {
+    color: #0076df;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.item-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 5px;
+}
+
+.description {
+    margin-top: 18px;
+}
+
+.project-entries {
+    display: grid;
+    gap: 24px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.project-entries h4 {
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.project-entries h4 a {
+    color: inherit;
+}
+
+.project-entries h4 a:hover {
+    color: #0076df;
+}
+
+.entry-links {
+    margin-top: 8px;
+}
+
+code {
+    font-family: Consolas, 'Liberation Mono', monospace;
+    font-size: 0.92em;
+}
+
+.publication-image {
+    width: 200px;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+}
+
+.authors {
+    margin-top: 2px;
+}
+
+.venue {
+    font-style: italic;
+}
+
+.recognition-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.recognition-list li + li {
+    margin-top: 16px;
+}
+
+/* Match the autoplaying film to the width of the closing message. */
+.closing-note {
+    width: fit-content;
+    max-width: 100%;
+    margin: 60px auto 0;
+    text-align: center;
+}
+
+.closing-note h2 {
+    margin-bottom: 12px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.closing-film {
+    contain: inline-size;
+    width: 100%;
+    max-width: 100%;
+    margin: 22px auto 0;
+}
+
+.closing-film video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+.closing-film figcaption {
+    margin-top: 9px;
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 42px;
+    color: #666;
+    text-align: center;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .intro {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 30px;
+    }
+
+    .profile-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .project,
+    .publication {
+        grid-template-columns: 160px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .publication-image {
+        width: 160px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        padding: 28px 22px 22px;
+    }
+
+    .intro {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+    }
+
+    .profile-photo {
+        grid-row: 1;
+        justify-self: center;
+        width: 180px;
+        height: 180px;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+    }
+
+    .content-section {
+        margin-top: 40px;
+    }
+
+    .project,
+    .publication {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .project-image {
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .project-image img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .publication-image {
+        width: 180px;
+        max-height: 110px;
+    }
+
+    .project + .project,
+    .publication + .publication {
+        margin-top: 34px;
+    }
+}
