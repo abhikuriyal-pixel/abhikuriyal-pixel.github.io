@@ -217,6 +217,76 @@
             margin-bottom: 5px;
         }
 
+        /* --- Development Projects --- */
+        #development {
+            margin-top: 70px;
+        }
+
+        .development-project {
+            align-items: start;
+        }
+
+        .development-project .work-info {
+            min-width: 0;
+        }
+
+        .project-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 7 / 5;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: #f8fafc;
+        }
+
+        .project-logo img {
+            display: block;
+            width: 144px;
+            max-width: 60%;
+            height: auto;
+        }
+
+        .development-project h3 a,
+        .project-integrations h4 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .development-project a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .project-integrations {
+            display: grid;
+            gap: 24px;
+            margin-top: 24px;
+            padding-left: 24px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .project-integrations h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-top: 18px;
+        }
+
+        .project-links a {
+            color: var(--accent-color);
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
         .authors {
             font-size: 0.95rem;
             font-weight: 500;
@@ -244,6 +314,7 @@
         @media (max-width: 768px) {
             .hero { height: 60vh; }
             .intro-section, .work-item { grid-template-columns: 1fr; }
+            .project-integrations { padding-left: 16px; }
             .hero-overlay { padding: 30px; margin-top: 60px; }
             .hero-overlay h1 { font-size: 2.5rem; }
             .hero-overlay p { font-size: 0.8rem; }
@@ -277,6 +348,7 @@
 
     <nav>
         <a href="#about">About</a>
+        <a href="#development">Development</a>
         <a href="https://scholar.google.com/citations?user=DWAYNoYAAAAJ&hl=en">Publications</a>
         <a href="./files/CV_2026.pdf">CV</a>
     </nav>
@@ -314,6 +386,75 @@
                 <p style="margin-top: 15px; font-style: italic;">I am currently seeking Researcher/PhD opportunities in 3D computer vision, mathematical modeling and related fields. </p>
                 <p style="margin-top: 15px;">I am also a 3D artist! Would love to work on simplifying the complex <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Node</a> workflows using vision driven intelligence.</p>
             </div>
+        </section>
+
+        <section id="development" aria-labelledby="development-title">
+            <h2 id="development-title" class="section-title">💻 Development</h2>
+
+            <article class="work-item development-project" aria-labelledby="docfoo-title">
+                <a class="project-logo" href="https://abhikuriyal-pixel.github.io/docfoo-cli/" aria-label="Visit DocFoo">
+                    <img src="./assets/projects/docfoo.svg" alt="DocFoo logo" width="512" height="512" loading="lazy">
+                </a>
+                <div class="work-info">
+                    <h3 id="docfoo-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">DocFoo project</a></h3>
+                    <p class="desc">DocFoo is a fast, vectorless, non-agentic retrieval engine for technical papers, books and documents. I built it to keep answers confined to the sources you actually work with. It retrieves the evidence first, then lets a local or cloud model write the answer, with citations and original figures, tables and code. The core is written in Rust, and a small local model can handle the answer-writing step.</p>
+
+                    <div class="project-integrations">
+                        <section aria-labelledby="docfoo-pikins-title">
+                            <h4 id="docfoo-pikins-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#pikins">Integration with PiKins</a></h4>
+                            <p class="desc">The easiest way to work with DocFoo. Import and index your documents in PiKins, then chat with DocFoo like a teammate. Open cited passages in the reader, ask questions beside the text, or continue the same conversation on Telegram.</p>
+                        </section>
+                        <section aria-labelledby="docfoo-hermes-title">
+                            <h4 id="docfoo-hermes-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#hermes">Integration with Hermes</a></h4>
+                            <p class="desc">Already using Hermes? Set up the DocFoo plugin once, then start your document questions with <code>dfq</code> in Slack or another connected chat. DocFoo looks through your library and returns answers with citations and original figures. Hermes delivers the answer without rewriting it.</p>
+                        </section>
+                        <section aria-labelledby="docfoo-agents-title">
+                            <h4 id="docfoo-agents-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#agents">Integration with coding agents</a></h4>
+                            <p class="desc">The same DocFoo skill works with Pi, OpenCode, Codex and Claude Code. It tells the agent when to scan, index and query your documents, and how to keep source citations and original figures in the answer.</p>
+                        </section>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">Explore DocFoo ↗</a>
+                        <a href="https://github.com/abhikuriyal-pixel/docfoo-cli">GitHub ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-item development-project" aria-labelledby="pikins-title">
+                <a class="project-logo" href="https://abhikuriyal-pixel.github.io/PiKins/" aria-label="Visit PiKins">
+                    <img src="./assets/projects/pikins.svg" alt="PiKins logo" width="256" height="256" loading="lazy">
+                </a>
+                <div class="work-info">
+                    <h3 id="pikins-title"><a href="https://abhikuriyal-pixel.github.io/PiKins/">PiKins</a></h3>
+                    <p class="desc">PiKins is a collaborative desktop app for working with persistent AI teammates. Each teammate has its own model, memory and workspace. Talk to them directly, or ask Chief to delegate work and bring their reports together. I built it for knowledge workers who need reliable document answers through DocFoo, alongside reactive marimo notebooks, connected apps and a browser. You choose the tools each teammate can use and review actions that need your approval.</p>
+                    <div class="project-links">
+                        <a href="https://abhikuriyal-pixel.github.io/PiKins/">Explore PiKins ↗</a>
+                        <a href="https://github.com/abhikuriyal-pixel/PiKins">GitHub ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-item development-project" aria-labelledby="llama-cpp-title">
+                <a class="project-logo" href="https://github.com/ggml-org/llama.cpp" aria-label="About llama.cpp">
+                    <img src="./assets/projects/llama-cpp.svg" alt="llama.cpp logo" width="250" height="250" loading="lazy">
+                </a>
+                <div class="work-info">
+                    <h3 id="llama-cpp-title">Model ports for llama.cpp</h3>
+                    <p class="desc">I’m implementing less-common architectures in llama.cpp, a lightweight C/C++ inference engine for running language and vision-language models locally. For CPU/GPU edge deployments, its wider choice of low-bit quantization formats, fast native kernels and lean runtime can make it a better fit than ONNX Runtime, particularly when memory and runtime overhead matter. The goal is simple: useful models running locally, without a heavy inference stack.</p>
+
+                    <div class="project-integrations">
+                        <section aria-labelledby="falconocr-title">
+                            <h4 id="falconocr-title"><a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">FalconOCR</a></h4>
+                            <p class="desc">I’m bringing FalconOCR, TII’s 270M-parameter OCR model, to llama.cpp. It processes image patches and text in a single Transformer. With about 30% of GLM-OCR’s 900M parameters and comparable OCR performance in the model authors’ reported evaluations, it is a promising fit for memory-constrained edge devices.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">GitHub ↗</a>
+                                <a href="https://huggingface.co/tiiuae/Falcon-OCR">Model &amp; benchmarks ↗</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </article>
         </section>
 
         <section id="research">
