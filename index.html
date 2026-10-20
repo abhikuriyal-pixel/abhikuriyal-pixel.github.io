@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Abhishek Kuriyal — researcher in Geospatial Artificial Intelligence and 3D Computer Vision.">
     <title>Abhishek Kuriyal</title>
+    <script src="./theme.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -13,6 +14,18 @@
 <body id="top">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page">
+        <div id="theme-controls" class="theme-controls" hidden>
+            <button id="theme-toggle" class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode" title="Switch to dark mode">
+                <span class="theme-toggle-thumb" aria-hidden="true"></span>
+                <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+                </svg>
+                <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                </svg>
+            </button>
+        </div>
         <header id="about" class="intro">
             <div class="intro-copy">
                 <h1>Abhishek Kuriyal</h1>
@@ -40,7 +53,7 @@
 
                 <article class="project" aria-labelledby="docfoo-title">
                     <a class="project-image" href="https://abhikuriyal-pixel.github.io/docfoo-cli/" aria-label="Visit DocFoo">
-                        <img src="./assets/projects/docfoo.svg" alt="DocFoo logo" width="80" height="80" loading="lazy">
+                        <img class="theme-monochrome" src="./assets/projects/docfoo.svg" alt="DocFoo logo" width="80" height="80" loading="lazy">
                     </a>
                     <div class="item-content">
                         <h3 id="docfoo-title"><a href="https://abhikuriyal-pixel.github.io/docfoo-cli/">DocFoo project</a></h3>
