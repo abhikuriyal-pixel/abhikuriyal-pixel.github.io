@@ -32,7 +32,7 @@
                 <p><strong>Hello!</strong></p>
                 <p>I am a recent Master’s graduate in Data Science and Artificial Intelligence from <strong><a href="https://www.iiserb.ac.in">IISER-B</a></strong>. My prior research focuses on <strong>semantic segmentation, interpretability of point cloud architectures</strong>, and <strong>spatial generalization</strong> in satellite imagery.</p>
                 <p>Recently, I worked as a <strong>Research Engineer</strong> at <a href="https://imagine-lab.enpc.fr/">Imagine Lab, École des Ponts ParisTech</a>, France, and previously interned at <a href="https://crdig.ulaval.ca/">CRDIG, Université Laval</a>, Canada, as a summer intern.</p>
-                <p><em>I'm currently seeking PhD opportunities in 3D vision, robotics, and related fields, with a particular interest in real-world embedded systems and hardware–software integration.</em></p>
+                <p><em>I'm currently seeking Researcher/PhD opportunities in 3D vision, robotics, cybersecurity and related fields. I am also  interested in exploring real-world embedded systems and hardware-software integration.</em></p>
                 <p>In my free time, I enjoy studying electronics and working with hardware. Fascinated with <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html">Geometry Nodes</a> lately.</p>
                 <nav class="profile-links" aria-label="Contact and academic profiles">
                     <a href="mailto:abhi.kuriyal@gmail.com">Email</a>
@@ -63,6 +63,7 @@
                             <a href="https://github.com/abhikuriyal-pixel/docfoo-cli">GitHub</a>
                         </div>
                         <p class="description">DocFoo is a fast, vectorless and non-agentic retrieval engine. It is designed to be a reliable partner for knowledge workers like researchers, medical practitioners, technicians etc. It keeps answers confined to the sources and much more fast &amp; trustworthy (by design) than unrestricted agentic search. The evidence retrieval is super fast with figures, tables, code, citations preserved and no loss of information.</p>
+                        <p class="description">When used with GPT-6 Luna, DocFoo has <strong>58.7%</strong> lower query time (8.81 s vs 21.32 s), <strong>80%</strong> fewer LLM requests, and <strong>60.1%</strong> fewer total tokens than agentic search. It is also <strong>59.4%</strong> cheaper than agentic search excluding prompt-caching. See <a href="https://abhikuriyal-pixel.github.io/docfoo-cli/#search-comparison">benchmark</a>.</p>
 
                         <section class="integration-group" aria-labelledby="docfoo-integrations-title">
                             <h4 id="docfoo-integrations-title" class="integration-group-label">DocFoo integrations</h4>
@@ -129,11 +130,14 @@
                                         <img class="integration-mark integration-mark--wide" src="./assets/integrations/falcon-ocr.webp" alt="" width="240" height="109" loading="lazy">
                                         <h5 id="falconocr-title"><span class="integration-prefix">llama.cpp port</span> FalconOCR</h5>
                                     </a>
-                                    <p>FalconOCR is TII’s 270M-parameter OCR model, processing image patches and text in a single Transformer. With just 30% of GLM-OCR’s parameters and comparable reported performance, it is well-suited for memory-constrained edge devices. I have implemented custom CPU kernels to support this architecture in llama.cpp.</p>
+                                    <p>FalconOCR is TII’s compact OCR model, processing image patches and text in a single Transformer. I ported it to llama.cpp and wrote custom FalconOCR-specific ggml operators that fuse multi-operation chains into single parallelized CPU kernels.</p>
+                                    <p>Approximately <strong>150% faster decode throughput (2.5×) on CPU</strong> than the official HuggingFace Transformers implementation running entirely on GPU in my comparison. Image-and-prompt prefill reaches <strong>~500 tokens/s</strong> on the same CPU. No CUDA, no Python runtime, no Triton.</p>
                                     <div class="item-links entry-links">
                                         <a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">GitHub</a>
                                         <span aria-hidden="true">/</span>
                                         <a href="https://huggingface.co/tiiuae/Falcon-OCR">Model &amp; benchmarks</a>
+                                        <span aria-hidden="true">/</span>
+                                        <a href="https://arxiv.org/abs/2603.27365">Paper</a>
                                     </div>
                                 </section>
                             </div>
