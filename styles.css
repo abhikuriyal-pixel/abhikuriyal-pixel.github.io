@@ -416,18 +416,6 @@ code {
     font-size: 14px;
 }
 
-.heart-dark {
-    display: none;
-}
-
-:root[data-theme="dark"] .heart-light {
-    display: none;
-}
-
-:root[data-theme="dark"] .heart-dark {
-    display: inline;
-}
-
 footer {
     margin-top: 42px;
     color: var(--footer-color);

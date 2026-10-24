@@ -19,6 +19,9 @@
         const theme = preference ?? (systemTheme.matches ? 'dark' : 'light');
         root.dataset.theme = theme;
 
+        const heart = document.getElementById('theme-heart');
+        if (heart) heart.textContent = theme === 'dark' ? '🤍' : '🖤';
+
         const button = document.getElementById('theme-toggle');
         if (button) {
             const nextTheme = theme === 'dark' ? 'light' : 'dark';
