@@ -130,8 +130,8 @@
                                         <img class="integration-mark integration-mark--wide" src="./assets/integrations/falcon-ocr.webp" alt="" width="240" height="109" loading="lazy">
                                         <h5 id="falconocr-title"><span class="integration-prefix">llama.cpp port</span> FalconOCR</h5>
                                     </a>
-                                    <p>FalconOCR is TII’s compact OCR model, processing image patches and text in a single Transformer. I ported it to llama.cpp and wrote custom FalconOCR-specific ggml operators that fuse multi-operation chains into single parallelized CPU kernels.</p>
-                                    <p>Approximately <strong>150% faster decode throughput (2.5×) on CPU</strong> than the official HuggingFace Transformers implementation running entirely on GPU in my comparison. Image-and-prompt prefill reaches <strong>~500 tokens/s</strong> on the same CPU. No CUDA, no Python runtime, no Triton.</p>
+                                    <p>FalconOCR is TII’s compact 270M-parameter OCR model, processing image patches and text in a single Transformer. To port in llama.cpp, custom FalconOCR-specific ggml operators are introduced fusing multi-operation chains into single parallelized CPU kernels.</p>
+                                    <p>Approximately <strong>150% faster decode throughput (2.5×) on CPU</strong> than the official HuggingFace Transformers implementation running entirely on GPU. Image-and-prompt prefill reaches <strong>~500 tokens/s</strong> on the same CPU. No CUDA, no Python runtime, no Triton.</p>
                                     <div class="item-links entry-links">
                                         <a href="https://github.com/abhikuriyal-pixel/llama-cpp-falconOCR">GitHub</a>
                                         <span aria-hidden="true">/</span>
